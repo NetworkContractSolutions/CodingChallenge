@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Globalization;
+using System.Linq;
 
 namespace CodingChallenge.FamilyTree
 {
@@ -7,39 +8,26 @@ namespace CodingChallenge.FamilyTree
     {
         public string GetBirthMonth(Person person, string descendantName)
         {
-            //If the passed in name is the same as the person passed in
+            ////If the passed in name is the same as the person passed in
             if (person.Name == descendantName)
             {
                 return GetMonthString(person.Birthday);
             }
 
-            //Iterate through children
-            foreach (var child in person.Descendants)
-            {
-                if (child.Name == descendantName)
-                {
-                    return GetMonthString(child.Birthday);
-                }
+            //Check all descendants
+            var match =
+                person
+                    .Descendants
+                    .SelectMany(x => x.Descendants)
+                    .Where(x => x.Name == descendantName).ToList().FirstOrDefault();
 
-                //Iterate through grandchildren
-                foreach (var grandchild in child.Descendants)
-                {
-                    if (grandchild.Name == descendantName)
-                    {
-                        return GetMonthString(grandchild.Birthday);
-                    }
-                }
-                //Continue iterations for each child in the tree hierarchy
-            }
-            return string.Empty;
+            var birthday = !string.IsNullOrEmpty(match?.Name) ? GetMonthString(match.Birthday) : string.Empty;
+            return birthday;
         }
-
 
         private static string GetMonthString(DateTime birthday)
         {
             return new DateTime(birthday.Year, birthday.Month, birthday.Day).ToString("MMMM", CultureInfo.InvariantCulture);
         }
     }
-
-
 }
