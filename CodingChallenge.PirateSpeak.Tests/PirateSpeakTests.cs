@@ -14,6 +14,8 @@ namespace CodingChallenge.PirateSpeak.Tests
         {
             var actualResult = new Solution().GetPossibleWords(jumble, dictionary);
             Assert.AreEqual(expectedResult,actualResult);
+            var actualResultRecursion = new Solution().GetPossibleWordsWithRecursion(jumble, dictionary);
+            Assert.AreEqual(expectedResult,actualResultRecursion);
         }
     }
 }
