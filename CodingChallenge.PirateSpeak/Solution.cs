@@ -7,16 +7,17 @@ namespace CodingChallenge.PirateSpeak
     {
         public string[] GetPossibleWords(string jumble, string[] dictionary)
         {
-            // Sort the jumble alphabetically
-            var j = jumble.ToCharArray();
-            Array.Sort(j);
+            // Quick delegate to sort the characters into ordered arrays
+            Func<string, char[]> sortArray = s => {
+                var c = s.ToCharArray();
+                Array.Sort(c);
+                return c;
+            };
 
             // Now compare the sorted jumble with sorted versions of each word in the array, return matches
             return dictionary.Where(w =>
             {
-                var c = w.ToCharArray();
-                Array.Sort(c);
-                return j.SequenceEqual(c);
+                return sortArray(jumble).SequenceEqual(sortArray(w));
             }).ToArray();
         }
     }
