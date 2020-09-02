@@ -20,5 +20,49 @@ namespace CodingChallenge.FamilyTree.Tests
 
             return person;
         }
+
+        public static Person MakeReal()
+        {
+            var tree = new Person
+            {
+                Name = "Ted",
+                Birthday = new DateTime(2000, 1, 1),
+                Descendants = new List<Person>
+                {
+                    new Person
+                    {
+                        Name = "Jim",
+                        Birthday = new DateTime(2000,2,1),
+                        Descendants = new List<Person>
+                        {
+                            new Person
+                            {
+                                Name = "Bob",
+                                Birthday = new DateTime(2000,3,1)
+                            }
+                        }
+                    },
+                    new Person
+                    {
+                        Name = "Sally",
+                        Birthday = new DateTime(2000,2,1),
+                        Descendants = new List<Person>
+                        {
+                            new Person
+                            {
+                                Name = "Joe",
+                                Birthday = new DateTime(2000,3,1)
+                            },
+                            new Person
+                            {
+                                Name = "George",
+                                Birthday = new DateTime(2000,3,1)
+                            }
+                        }
+                    }
+                }
+            };
+            return tree;
+        }
     }
 }
