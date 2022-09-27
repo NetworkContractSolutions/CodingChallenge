@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import TodoList from './components/todo/TodoList';
 import { connect } from 'react-redux';
 import { addTodo } from './todoActions';
+import { PieChartComponent } from './components/PieChart';
 
 import './App.scss';
 import './button.scss';
 
-const App = ({ addTodoChange }) => {
+const App = ({ todos, addTodoChange }) => {
   const [newTodo, setNewTodo] = useState({
     text: '',
     dueDate: '',
@@ -28,6 +29,7 @@ const App = ({ addTodoChange }) => {
   return (
     <div className="App">
       <h2>TODO App</h2>
+      <PieChartComponent todos={todos} />
       <input
         type="text"
         name="text"
@@ -48,8 +50,12 @@ const App = ({ addTodoChange }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  todos: state.todos ?? [],
+});
+
 const mapDispatchToProps = dispatch => ({
   addTodoChange: newTodo => dispatch(addTodo(newTodo)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

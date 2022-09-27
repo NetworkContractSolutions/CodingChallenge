@@ -54,43 +54,43 @@ const svc = {
       {
         id: ++counter + firstId,
         text: 'Implement addNewTodo in App.js',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-01',
       },
       {
         id: ++counter + firstId,
         text: 'Fix the bug where text changes to a todo item are lost on browser refresh',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-05',
       },
       {
         id: ++counter + firstId,
         text: 'Match the provided design',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-20',
       },
       {
         id: ++counter + firstId,
         text: 'Add a chart for complete and incomplete todo items',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-01',
       },
       {
         id: ++counter + firstId,
         text: 'Replace the Edit/Save/Complete buttons with icons',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-08',
       },
       {
         id: ++counter + firstId,
         text: 'Add a due date to each todo',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-30',
       },
       {
         id: ++counter + firstId,
         text: 'Sort the todo list by due date',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-27',
       },
       {
@@ -102,7 +102,7 @@ const svc = {
       {
         id: ++counter + firstId,
         text: 'Refactor anything in this app to your liking',
-        isComplete: false,
+        isComplete: true,
         dueDate: '2022-10-03',
       },
     ];
