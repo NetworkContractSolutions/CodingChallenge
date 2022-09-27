@@ -1,5 +1,9 @@
 .todo-item {
   font-size: 18px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 80% 1fr;
+  align-items: center;
 
   &.complete {
     text-decoration: line-through;
@@ -9,11 +13,25 @@
     margin-left: 5px;
   }
 
+  .todo-item--input {
+    width: 100% !important;
+  }
+
+  &.todo-item--container {
+    border-bottom: 1px solid #000;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
 }
 
 .todo-list {
-
   .todo-item + .todo-item {
     margin-top: 5px
   }
+}
+
+.todo-container {
+  margin-top: 30px;
+  border: 1px solid #000;
 }

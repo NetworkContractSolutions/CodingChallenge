@@ -72,6 +72,25 @@ $required-border: 1px solid $red;
         border: 1px solid $light-grey;
     }
 
+    &.btn--svg {
+        background-color: transparent;
+        border: none;
+        transition: background-color 75ms ease-out;
+        padding: 5px 5px;
+
+        &:hover {
+            background-color: $lightest-grey;
+        }
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:disabled {
+            color: $light-grey;
+        }
+    }
+
     &.btn--base {
         background-color: transparent;
         border: none;
