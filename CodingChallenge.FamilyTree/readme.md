@@ -1,3 +1,7 @@
+# Family Tree
+
+## Scope
+
 Context
 
 	- You are given a family tree.  
@@ -19,3 +23,21 @@ Once that is complete, augment the method to handle Names that do not exist in t
 
 Comments are appreciated to explain thought process.
 Feel free to add/remove anything from this Solution that will help you in solving the problem.  Comments are appreciated to explain thought process.
+
+## Explanation of Answer
+
+Approach to the problem:
+
+* Assumption: names cannot be null or empty strings
+* Validate that the names being compared are valid
+* First Attempt (Recursion)
+	* First attempt at this solution was using recursion since it was obvious and fast to get a working solution
+	* Compare the current person
+	  * If found, return their birth date
+	  * If not found, iterate over descendants and compare their names
+	* There is a limited recursive limit, so this solution is not ideal
+* Second Attempt (Queue)
+	* Second attempt at this solution is an improvement by using a queue
+	* Hash table keeps track of nodes visited
+	  * NOTE: The value of the hash table isn't used, it just checks if the key exists
+	* Queue is used to keep track of neighbors that have not been visited

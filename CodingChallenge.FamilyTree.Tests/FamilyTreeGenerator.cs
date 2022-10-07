@@ -20,5 +20,18 @@ namespace CodingChallenge.FamilyTree.Tests
 
             return person;
         }
+
+        public static Person MakeLargeList()
+        {
+            var hierarchySpec = Builder<HierarchySpec<Person>>.CreateNew()
+                .With(h => h.AddMethod, (p1, p2) => p1.Descendants.Add(p2))
+                .With(h => h.Depth = 70)
+                .With(h => h.MaximumChildren = 30)
+                .With(h => h.NumberOfRoots = 10).Build();
+
+            var person = Builder<Person>.CreateListOfSize(2000000).BuildHierarchy(hierarchySpec).First();
+
+            return person;
+        }
     }
 }

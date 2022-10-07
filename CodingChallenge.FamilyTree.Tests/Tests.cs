@@ -9,19 +9,51 @@ namespace CodingChallenge.FamilyTree.Tests
         [TestCase(1)]
         [TestCase(33)]
         [TestCase(22)]
-        public void if_the_person_exists_in_tree_the_result_should_be_their_birthday(int index)
+        public void TestPersonExists(int index)
         {
             var tree = FamilyTreeGenerator.Make();
             var result = new Solution().GetBirthMonth(tree, "Name" + index);
-            Assert.AreEqual(result,DateTime.Now.AddDays(index - 1).ToString("MMMM"));
+            Assert.AreEqual(DateTime.Now.AddDays(index - 1).ToString("MMMM"), result);
         }
 
-        [Test]
-        public void if_the_person_does_not_exist_in_the_tree_the_result_should_be_empty()
+        [TestCase(10)]
+        public void TestPersonExistsLargeList(int index)
+        {
+            var tree = FamilyTreeGenerator.MakeLargeList();
+            var result = new Solution().GetBirthMonth(tree, "Name" + index);
+            Assert.AreEqual(DateTime.Now.AddDays(index - 1).ToString("MMMM"), result);
+        }
+
+        [TestCase("")]
+        [TestCase(null)]
+        [TestCase("abc")]
+        public void TestPersonNull(string searchName)
+        {
+            AssertNameNotFound(null, searchName);
+        }
+
+        [TestCase("")]
+        [TestCase(null)]
+        [TestCase("abc")]
+        public void TestPersonEmpty(string searchName)
+        {
+            var emptyTree = new Person();
+            AssertNameNotFound(emptyTree, searchName);
+        }
+
+        [TestCase("invalidName")]
+        [TestCase("")]
+        [TestCase(null)]
+        public void TestNameNotExists(string searchName)
         {
             var tree = FamilyTreeGenerator.Make();
-            var result = new Solution().GetBirthMonth(tree, "Jeebus");
-            Assert.AreEqual("",result);
+            AssertNameNotFound(tree, searchName);
+        }
+
+        private static void AssertNameNotFound(Person tree, string searchName)
+        {
+            var result = new Solution().GetBirthMonth(tree, searchName);
+            Assert.IsEmpty(result);
         }
     }
 }
