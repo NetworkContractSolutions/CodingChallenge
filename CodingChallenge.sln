@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingChallenge.FamilyTree", "CodingChallenge.FamilyTree\CodingChallenge.FamilyTree.csproj", "{1CCCAF72-CB1C-4267-A081-437C77754D3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge.FamilyTree.Tests", "CodingChallenge.FamilyTree.Tests\CodingChallenge.FamilyTree.Tests.csproj", "{9F49C156-7028-4032-821A-3682D37B7CA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingChallenge.FamilyTree.Tests", "CodingChallenge.FamilyTree.Tests\CodingChallenge.FamilyTree.Tests.csproj", "{9F49C156-7028-4032-821A-3682D37B7CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge.PirateSpeak", "CodingChallenge.PirateSpeak\CodingChallenge.PirateSpeak.csproj", "{12C1B60F-3ED6-42A7-9EA1-083CD9735E52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingChallenge.PirateSpeak", "CodingChallenge.PirateSpeak\CodingChallenge.PirateSpeak.csproj", "{12C1B60F-3ED6-42A7-9EA1-083CD9735E52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingChallenge.PirateSpeak.Tests", "CodingChallenge.PirateSpeak.Tests\CodingChallenge.PirateSpeak.Tests.csproj", "{074DE2BA-916C-40A8-8096-68909F1E839B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingChallenge.PirateSpeak.Tests", "CodingChallenge.PirateSpeak.Tests\CodingChallenge.PirateSpeak.Tests.csproj", "{074DE2BA-916C-40A8-8096-68909F1E839B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
