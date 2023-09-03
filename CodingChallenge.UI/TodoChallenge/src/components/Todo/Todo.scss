@@ -1,0 +1,111 @@
+$dark-grey: #9b9b9b;
+$common-border-color: $dark-grey;
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-new {
+  width: 80%;
+  margin-bottom: 20px;
+  display: flex;
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  input[type=text] {
+    font-size: medium;
+    // border-color: $common-border-color;
+  }
+
+  button {
+    border-color: $common-border-color;
+
+    &:disabled {
+      border-color: $common-border-color;
+    }
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  .react-datepicker-wrapper {
+    font-size: medium;
+    border: solid 1px;
+    width: fit-content;
+    vertical-align: middle;
+    
+    input[type=text] {
+      width: 100%;
+      border: none;
+      font-size: medium;
+      background-color: transparent;
+
+      .react-datepicker-ignore-onclickoutside {
+        border: none;
+      }
+    }
+  }
+}
+
+
+
+.todo-progress-wrapper {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px
+}
+
+.todo-filter {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.todo-item {
+  border: solid 1px $common-border-color;
+  margin: 0px;
+  padding: 5px;
+  font-size: medium;
+
+  display: flex;
+  vertical-align: middle;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  &.complete {
+    text-decoration: line-through;
+  }
+
+  &.controls {
+    border: none;
+    margin-left: auto;
+    width: fit-content;
+
+    button {
+      font-size: 120%;
+      margin-left: 5px;
+      padding: 5px;
+    }
+
+    .red {
+      color: red;
+    }
+    
+    .green {
+      color: green;
+    }
+  }
+
+  input {
+    font-size: medium;
+    width: 100%;
+  }
+
+}
+
+.todo-list {
+  width: 100%;
+}

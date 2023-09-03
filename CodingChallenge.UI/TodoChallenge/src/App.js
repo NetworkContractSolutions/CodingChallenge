@@ -1,33 +1,13 @@
-import React, {Component} from 'react';
-import TodoList from "./components/todo/TodoList";
+import React from 'react';
+import Todo from "./components/Todo/Todo";
 import "./App.scss";
-import './button.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      newTodo: ''
-    };
-  }
-
-  textInputChange = (e) =>  {
-    this.setState({...this.state, newTodo: e.target.value});
-  }
-
-  addNewTodo = () => {
-    console.warn('not implemented');
-  }
-
-  render() {
+const App = () => {
     return (
-      <div className="App">
-        <input type="text" value={this.state.newTodo} onChange={this.textInputChange}></input>
-        <button className={"btn--default"} onClick={this.addNewTodo}>Add</button>
-        <TodoList />
-      </div>
-  )}
+        <div className="App">
+            <Todo />
+        </div>
+    )
 }
 
 export default App;
