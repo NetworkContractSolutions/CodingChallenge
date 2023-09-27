@@ -1,0 +1,300 @@
+//Variables
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i");
+$default-font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica,
+  sans-serif;
+
+$lightest-grey: #f2f2f2;
+$light-grey: #e3e3e3;
+$grey: #cbcbcb;
+$dark-grey: #9b9b9b;
+$darkest-grey: #4a4a4a;
+
+$light-green: #7ed321;
+$green: #2eac12;
+$dark-green: #417505;
+
+$aqua-blue: #00bdff;
+$light-blue: #1261ff;
+$blue: #003da5;
+$light-blue-grey: #767f95;
+$blue-grey: #2f3648;
+$dark-blue-grey: #272e3c;
+
+$yellow: #f8e71c;
+$orange: #f5a623;
+$red: #d0021b;
+$dark-red: #910112;
+
+$white: #ffffff;
+$black-grey: #2f3648;
+$black: #000000;
+$filler-background-color: $lightest-grey;
+$default-text-color: $black-grey;
+$default-grey-background: $light-grey;
+$accordion-border-color: $light-grey;
+$unchecked-grey: #767f95;
+
+$default-font-size: 14px;
+$opacity7: 0.7;
+
+$short-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.35);
+$long-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.3);
+$modal-box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.2);
+$transition: cubic-bezier(0.49, 0.59, 0.68, 1.05);
+$required-border: 1px solid $red;
+
+.btn--default {
+  background-color: $white;
+  color: $light-blue;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid $grey;
+  border-radius: 2px;
+  transition: background-color 75ms ease-out;
+
+  &:hover {
+    color: $blue;
+    background-color: $light-grey;
+  }
+
+  &:active {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled {
+    color: $light-grey;
+    border: 1px solid $light-grey;
+  }
+
+  &.btn--base {
+    background-color: transparent;
+    border: none;
+    color: $light-blue;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      color: $blue;
+      background-color: #fbfbfb;
+    }
+
+    &:active {
+      background-color: $light-grey;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      color: $light-grey;
+    }
+  }
+
+  &.btn--solid {
+    background-color: $light-blue;
+    color: $white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+
+    &:active {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      background-color: $dark-grey;
+    }
+  }
+
+  &.btn--destructive-solid {
+    background-color: $red;
+    color: $white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      background-color: $dark-red;
+      color: $white;
+    }
+
+    &:active {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      background-color: $dark-grey;
+    }
+  }
+
+  &.btn--brand {
+    background-color: $white;
+    color: $light-blue;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid $light-blue;
+    border-radius: 2px;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      color: $blue;
+      border-color: $blue;
+      background-color: $light-grey;
+    }
+
+    &:active {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      color: $white;
+      background-color: $dark-grey;
+      border: none;
+    }
+  }
+
+  &.btn--destructive {
+    background-color: $white;
+    color: $red;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid $grey;
+    border-radius: 2px;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      color: $dark-red;
+      background-color: $light-grey;
+    }
+
+    &:active {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      color: $light-grey;
+      border: 1px solid $light-grey;
+    }
+  }
+
+  &.btn--success-solid {
+    background-color: $green;
+    color: $white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      background-color: $dark-green;
+      color: $white;
+    }
+
+    &:active {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      background-color: $dark-grey;
+    }
+  }
+
+  &.btn--inverse,
+  &.btn--inverse-base {
+    background-color: transparent;
+    color: $white;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid $white;
+    border-radius: 2px;
+    transition: background-color 75ms ease-out;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: $white;
+    }
+
+    &:active {
+      background-color: $white;
+      color: $light-blue;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      color: $light-grey;
+      border: 1px solid $light-grey;
+    }
+  }
+
+  &.btn--inverse-base {
+    border: none;
+  }
+
+  &.btn--smallest {
+    font-size: 10px;
+    padding: 7px 13px;
+  }
+
+  &.btn--smaller {
+    font-size: 12px;
+    padding: 9px 18px;
+  }
+
+  &.btn--big {
+    font-size: 18px;
+    padding: 21px 50px;
+  }
+
+  &.btn--full-width {
+    width: 100%;
+  }
+}

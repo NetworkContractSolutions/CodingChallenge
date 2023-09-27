@@ -1,0 +1,72 @@
+.container {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 24px;
+  padding-bottom: 100px;
+
+  .header {
+    border: 1px solid black;
+    padding: 0 40px 10px;
+    border-top: none;
+    box-sizing: border-box;
+    &__title {
+      margin: 0;
+    }
+  }
+
+  .add-todo {
+    display: flex;
+    justify-self: center;
+    &__input {
+      height: 38px;
+      width: 100%;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+      border: 1px solid black;
+      outline: none;
+
+      @media screen and (min-width: 650px) {
+        min-width: 470px;
+      }
+    }
+
+    &__button {
+      border-color: black;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    &__date-picker {
+      position: relative;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      &__label {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        font-size: 12px;
+      }
+
+      &__input {
+        box-sizing: border-box;
+        height: 40px;
+        margin: 0;
+        padding: 0 10px;
+        border: none;
+
+        ::-webkit-datetime-edit {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+
+  .error-message {
+    margin: 0;
+    color: red;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
