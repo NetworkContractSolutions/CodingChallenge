@@ -13,6 +13,15 @@ export const completeTodo = (todo) => {
     );
 };
 
+export const updateTodoText = (text, id) => {
+    return (dispatch) => (
+        todoSvc.updateTodoText(text, id)
+            .then(() => {
+                return dispatch({type: TODO_TEXT_CHANGE, text, id })
+            })
+    );
+};
+
 export const getTodos = () => {
     return (dispatch) => (
         todoSvc.getTodos()

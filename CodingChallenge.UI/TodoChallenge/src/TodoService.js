@@ -14,6 +14,12 @@ const svc =  {
         return Promise.resolve(todo);
     },
 
+    updateTodoText: async (text, id) => {
+        const todos = (await svc.getTodos()).map((item) => (item.id === id ? {...item, text: text} : item));
+        localStorage.setItem(KEY, JSON.stringify(todos));
+        return Promise.resolve(text);
+    },
+
     addTodo: async text => {
         const todos = (await svc.getTodos());
         const nextId = Number(new Date());
