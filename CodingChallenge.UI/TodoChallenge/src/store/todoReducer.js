@@ -1,4 +1,4 @@
-import {GET_TODOS_SUCCESS, TODO_COMPLETE_CHANGE, TODO_TEXT_CHANGE} from "./todoActions";
+import {GET_TODOS_SUCCESS, TODO_COMPLETE_CHANGE, TODO_TEXT_CHANGE,TODO_ADD_SUCCESS,DELETE_TODO} from "./todoActions";
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -20,6 +20,18 @@ export const reducer = (state, action) => {
                 todos: action.todos
             };
         }
+        case TODO_ADD_SUCCESS: {
+            return {
+                ...state,
+                 todos: [...state.todos, action.todo],
+            };
+        }
+        case DELETE_TODO: {
+            return {
+              ...state,
+              todos: state.todos.filter((todo) => todo.id !== action.id),
+            };
+          }
         default: return state;
     }
 }
