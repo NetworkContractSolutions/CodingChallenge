@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using FizzWare.NBuilder;
 using NUnit.Framework;
 
 namespace CodingChallenge.FamilyTree.Tests

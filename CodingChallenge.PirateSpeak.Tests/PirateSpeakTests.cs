@@ -14,6 +14,13 @@ namespace CodingChallenge.PirateSpeak.Tests
             var actualResult = new Solution().GetPossibleWords(jumble, dictionary);
             Assert.AreEqual(expectedResult,actualResult);
         }
+
+        [TestCase("rropat", new[] {"parrot", "parrot", "parrot", "raptor", "dingo"}, new[] {"parrot", "raptor"})]
+        public void ShouldIgnoreDuplicateWords(string jumble, string[] dictionary, object expectedResult)
+        {
+            var actualResult = new Solution().GetPossibleWords(jumble, dictionary);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }
 
