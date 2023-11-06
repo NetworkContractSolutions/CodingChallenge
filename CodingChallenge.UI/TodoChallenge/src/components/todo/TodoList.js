@@ -1,50 +1,75 @@
-import React, {useState, useEffect} from 'react';
-import Todo from "./Todo";
-import {TodoListModel} from "../../TodoModel";
-import {connect} from "react-redux";
-import {completeTodo, getTodos, TODO_TEXT_CHANGE} from "../../todoActions";
+import React, { useEffect, useState } from 'react';
+import Todo from './Todo';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  completeTodo,
+  getTodos,
+  updateTextTodo,
+} from '../../todoActions';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-const TodoList = ({todos, getTodos, onTodoTextChange, onTodoCompleteChange}) => {
-    const [filtered, setFiltered] = useState(true);
 
-    const filterByOnChange = () => {
-        setFiltered(!filtered);
-    }
+import './todo.scss';
+import './TodoList.scss';
 
-    useEffect(() => {
-        getTodos();
-    }, [getTodos]);
+const TodoList = () => {
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos ?? []);
+  const [filtered, setFiltered] = useState(true);
 
-    const renderTodoList = (todos) => {
-        return todos.filter(filterTodos).map(mapTodoObjectToComponent);
-    }
-    const filterTodos = (todo) => filtered ? !todo.isComplete : true;
-    const mapTodoObjectToComponent = (todo, i) => (<Todo key={i}
-                                                         todo={todo}
-                                                         onTextChange={onTodoTextChange}
-                                                         onCompleteChange={onTodoCompleteChange} />);
+  useEffect(() => {
+    dispatch(getTodos());
+  }, [dispatch]);
 
-    return (
-        <div className="todo-list">
-            <h2>List of todos</h2>
-            <div>
-                <span>Filter by complete</span>
-                <input type="checkbox" defaultChecked={filtered} onChange={filterByOnChange}  />
-            </div>
-            {renderTodoList(todos)}
-        </div>
-    );
-}
+  const toggleFilter = () => {
+    setFiltered(!filtered);
+  };
 
-TodoList.propTypes = TodoListModel;
+  const filterTodos = (todo) => (filtered ? !todo.isComplete : true);
 
-const mapStateToProps = (state) => ({
-    todos: state.todos ?? []
-});
-const mapDispatchToProps = (dispatch) => ({
-    onTodoTextChange: (text, id) => dispatch({type: TODO_TEXT_CHANGE, text, id}),
-    onTodoCompleteChange: (todo) => dispatch(completeTodo(todo)),
-    getTodos: () => dispatch(getTodos())
-});
+  const sortedTodos = [...todos].sort((a, b) => {
+    if (a.dueDate === b.dueDate) return 0;
+    return a.dueDate < b.dueDate ? -1 : 1;
+  });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+  const handleTextChange = (updatedTodo) => {
+    dispatch(updateTextTodo(updatedTodo));
+  };
+
+  const handleCompleteChange = (updatedTodo) => {
+    dispatch(completeTodo(updatedTodo));
+  };
+
+  return (
+    <div className="todo-list">
+      <div className="filter-container">
+        <label htmlFor="filterByComplete">Filter by complete</label>
+        <input
+          id="filterByComplete"
+          type="checkbox"
+          checked={filtered}
+          onChange={toggleFilter}
+        />
+      </div>
+      <div className="todo-container">
+        <TransitionGroup>
+          {sortedTodos.filter(filterTodos).map((todo) => (
+            <CSSTransition
+              key={todo.id}
+              timeout={150}
+              classNames="fade"
+            >
+              <Todo
+                todo={todo}
+                onTextChange={handleTextChange}
+                onCompleteChange={handleCompleteChange}
+              />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </div>
+    </div>
+  );
+};
+
+export default TodoList;
