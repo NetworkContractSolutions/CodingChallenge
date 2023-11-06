@@ -1,33 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
 import TodoList from "./components/todo/TodoList";
+import TodoAdd from "./components/todo/TodoAdd";
+import TodoDonutChart from './components/todo/TodoDonutChart';
 import "./App.scss";
 import './button.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
-    this.state = {
-      newTodo: ''
-    };
-  }
+const App = () => {
 
-  textInputChange = (e) =>  {
-    this.setState({...this.state, newTodo: e.target.value});
-  }
-
-  addNewTodo = () => {
-    console.warn('not implemented');
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <input type="text" value={this.state.newTodo} onChange={this.textInputChange}></input>
-        <button className={"btn--default"} onClick={this.addNewTodo}>Add</button>
+  return (
+    <Container maxWidth="sm">
+      <Box className="App" sx={{ display: 'flex', flexDirection: 'column' }}>
+        <h1 style={{ margin: 'auto', textAlign: 'center' }}>
+          Todo App
+        </h1>
+        <TodoDonutChart />
+        <TodoAdd />
         <TodoList />
-      </div>
-  )}
+      </Box>
+    </Container>
+  )
 }
 
 export default App;
