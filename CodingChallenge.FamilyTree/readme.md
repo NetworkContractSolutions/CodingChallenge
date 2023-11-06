@@ -19,3 +19,15 @@ Once that is complete, augment the method to handle Names that do not exist in t
 
 Comments are appreciated to explain thought process.
 Feel free to add/remove anything from this Solution that will help you in solving the problem.  Comments are appreciated to explain thought process.
+
+## Solution Overview
+The solution implements a breadth-first search (BFS) algorithm to traverse the family tree efficiently.
+This approach ensures that all nodes (people) at the current depth (generation) are explored before moving on to the next level.
+
+## Features
+- Robust Error Handling: Checks for null or empty inputs to prevent unnecessary processing.
+- Breadth-First Search: Utilizes BFS to ensure minimum traversal and early termination upon finding the target individual.
+
+## Memoization Version
+- Optimized String Comparison: Employs StringComparison.Ordinal for faster string comparisons.
+- Caching: Implements a simple cache to store and retrieve previously searched results quickly.
