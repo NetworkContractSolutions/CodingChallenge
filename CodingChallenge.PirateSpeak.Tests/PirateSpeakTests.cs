@@ -9,6 +9,9 @@ namespace CodingChallenge.PirateSpeak.Tests
         [TestCase("ainstuomn", new[] { "mountains", "hills", "mesa" }, new[] { "mountains" })]
         [TestCase("oopl", new[] { "donkey", "pool", "horse", "loop" }, new[] { "pool", "loop" })]
         [TestCase("oprst", new[] {"sport", "ports", "ball", "bat", "port"}, new[] {"sport", "ports"})]
+        [TestCase("", new[] {"empty", "jumble", "test"}, new string[0])]
+        [TestCase("emptydictionarytest", new string[0], new string[0])]
+        [TestCase("nulldicitonarytest", null, new string[0])]
         public void TestPirateVocabulary(string jumble, string[] dictionary, object expectedResult)
         {
             var actualResult = new Solution().GetPossibleWords(jumble, dictionary);
