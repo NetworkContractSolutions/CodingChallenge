@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CodingChallenge.FamilyTree;
+﻿using System.Linq;
 using FizzWare.NBuilder;
 
 namespace CodingChallenge.FamilyTree.Tests
