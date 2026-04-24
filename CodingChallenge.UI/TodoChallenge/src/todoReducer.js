@@ -1,17 +1,17 @@
-import {GET_TODOS_SUCCESS, TODO_COMPLETE_CHANGE, TODO_TEXT_CHANGE} from "./todoActions";
+import { ADD_TODO, GET_TODOS_SUCCESS, TODO_COMPLETE_CHANGE, TODO_TEXT_CHANGE } from "./todoActions";
 
 export const reducer = (state, action) => {
     switch (action.type) {
         case TODO_TEXT_CHANGE: {
             return {
                 ...state,
-                todos: state.todos.map(todo => todo.id === action.id ? {...todo, text: action.text} : todo)
+                todos: state.todos.map(todo => todo.id === action.id ? { ...todo, text: action.text } : todo)
             };
         }
         case TODO_COMPLETE_CHANGE: {
             return {
                 ...state,
-                todos: state.todos.map(todo => todo.id === action.id ? {...todo, isComplete: action.isComplete} : todo)
+                todos: state.todos.map(todo => todo.id === action.id ? { ...todo, isComplete: action.isComplete } : todo)
             };
         }
         case GET_TODOS_SUCCESS: {
@@ -19,6 +19,12 @@ export const reducer = (state, action) => {
                 ...state,
                 todos: action.todos
             };
+        }
+        case ADD_TODO: {
+            return {
+                ...state,
+                todos: [...state.todos, action.todo]
+            }
         }
         default: return state;
     }
