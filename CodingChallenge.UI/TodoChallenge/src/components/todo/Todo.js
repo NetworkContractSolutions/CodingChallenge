@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {TodoModel} from "../../TodoModel";
 import PropTypes from "prop-types";
 import './todo.scss';
+import svc from "../../TodoService";
 
 const Todo = (props) => {
     const [editing, setStateEditing] =  useState(false);
@@ -19,6 +20,7 @@ const Todo = (props) => {
     const saveText = () => {
         if (!editing) return;
         props.onTextChange(editingText, props.todo.id);
+        svc.updateTodoText(editingText, props.todo.id);
         toggleEditText();
     };
 

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Todo from "./Todo";
 import {TodoListModel} from "../../TodoModel";
 import {connect} from "react-redux";
-import {completeTodo, getTodos, TODO_TEXT_CHANGE} from "../../todoActions";
+import {completeTodo, getTodos, updateTodoText} from "../../todoActions";
 
 const TodoList = ({todos, getTodos, onTodoTextChange, onTodoCompleteChange}) => {
     const [filtered, setFiltered] = useState(true);
@@ -42,7 +42,7 @@ const mapStateToProps = (state) => ({
     todos: state.todos ?? []
 });
 const mapDispatchToProps = (dispatch) => ({
-    onTodoTextChange: (text, id) => dispatch({type: TODO_TEXT_CHANGE, text, id}),
+    onTodoTextChange: (text, id) => dispatch(updateTodoText(text, id)),
     onTodoCompleteChange: (todo) => dispatch(completeTodo(todo)),
     getTodos: () => dispatch(getTodos())
 });
