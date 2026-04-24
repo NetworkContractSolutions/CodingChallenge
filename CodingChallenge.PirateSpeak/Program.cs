@@ -6,7 +6,8 @@ namespace CodingChallenge.PirateSpeak
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(new Solution().GetPossibleWords("boop", new [] {"oops","poo","boo","noop"}));
+            var words = new Solution().GetPossibleWords("boop", new[] { "oops", "poo", "boo", "noop", "poob" });
+            Console.WriteLine($"Words found: {string.Join(",", words)}");
         }
     }
 }
