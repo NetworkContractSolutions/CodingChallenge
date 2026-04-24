@@ -1,19 +1,50 @@
 .todo-item {
   font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
 
   &.complete {
     text-decoration: line-through;
   }
 
-  button {
-    margin-left: 5px;
+  .actions {
+    display: flex;
+    margin-left: 12px;
   }
 
+  .edit-container {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    .react-datepicker-wrapper {
+      flex: 1;
+      input {
+        width: 100%;
+      }
+    }
+
+    input {
+      flex: 1;
+    }
+  }
+
+  &.todo-item--container {
+    border-bottom: 2px solid #0088fe;
+    &:hover {
+      background: #e3e3e3;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
-
-.todo-list {
-
-  .todo-item + .todo-item {
-    margin-top: 5px
-  }
+.todo-container {
+  margin-top: 10px;
+  border: 2px solid #0088fe;
+  width: 100%;
 }
