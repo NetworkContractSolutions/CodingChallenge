@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import {TodoModel} from "../../TodoModel";
+import React, { useState } from 'react';
+import { TodoModel } from "../../TodoModel";
 import PropTypes from "prop-types";
 import './todo.scss';
 
 const Todo = (props) => {
-    const [editing, setStateEditing] =  useState(false);
+    const [editing, setStateEditing] = useState(false);
     const [editingText, setStateEditText] = useState(props.todo.text);
 
-
     const toggleComplete = () => {
-        props.onCompleteChange({...props.todo, isComplete: !props.todo.isComplete});
+        props.onCompleteChange({ ...props.todo, isComplete: !props.todo.isComplete });
     }
 
     const toggleEditText = () => {
@@ -27,17 +26,32 @@ const Todo = (props) => {
     }
 
     const displayText = () => {
-        if (editing)
-        {
-            return <input onChange={onChangeEditText} value={editingText}></input>
+        if (editing) {
+            return (
+                <div>
+                    <input onChange={onChangeEditText} value={editingText}></input>
+                    <input
+                        type="date"
+                        value={props.todo.dueDate}
+                        onChange={(e) => {
+                            props.onDueDateChange(e.target.value, props.todo.id);
+                        }}
+                    />
+                </div>
+            )
         }
-        else
-        {
-            return props.todo.text;
+        else {
+            return (
+                <div>
+                    <span>{props.todo.text}</span>
+                    <span>Due Date: {props.todo.dueDate}</span>
+                </div>
+            )
         }
     }
+
     const getClassName = () => {
-        const {isComplete} = props.todo;
+        const { isComplete } = props.todo;
         return `todo-item ${isComplete ? 'complete' : 'incomplete'}`;
     }
 
@@ -56,7 +70,8 @@ const Todo = (props) => {
 Todo.propTypes = {
     todo: PropTypes.shape(TodoModel),
     onTextChange: PropTypes.func,
-    onCompleteChange: PropTypes.func
+    onCompleteChange: PropTypes.func,
+    onDueDateChange: PropTypes.func, // Add the prop for due date change
 };
 
 export default Todo;
