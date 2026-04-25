@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import TodoList from "./components/todo/TodoList";
+import NewTodo from './components/todo/NewTodo';
+import TodoChart from './components/todo/TodoChart';
 import "./App.scss";
 import './button.scss';
 
@@ -14,17 +16,20 @@ class App extends Component {
 
   textInputChange = (e) =>  {
     this.setState({...this.state, newTodo: e.target.value});
+
   }
 
-  addNewTodo = () => {
-    console.warn('not implemented');
+  addNewTodo = (e) => {
+    console.log('add new todo');
+    
   }
 
   render() {
     return (
       <div className="App">
-        <input type="text" value={this.state.newTodo} onChange={this.textInputChange}></input>
-        <button className={"btn--default"} onClick={this.addNewTodo}>Add</button>
+        <h1 className='App-header'>TODO APP</h1>
+        <TodoChart />
+        <NewTodo />
         <TodoList />
       </div>
   )}
