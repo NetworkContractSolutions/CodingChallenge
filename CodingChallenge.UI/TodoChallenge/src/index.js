@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App';
+import App from "./containers/app";
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import configureStore from "./store/configStore";
-import todoSvc from "./TodoService";
+import todoSvc from "./services/TodoService";
 
 const initialState = {
     todos: todoSvc.initialize()

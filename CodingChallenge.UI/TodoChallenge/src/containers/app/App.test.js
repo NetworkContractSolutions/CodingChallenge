@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import {reducer} from "./todoReducer";
+import {reducer} from "../store/todoReducer";
 
 test('text change action', () => {
   const prevState = {
